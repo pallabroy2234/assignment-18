@@ -3,14 +3,13 @@ import {PrismaClient} from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// -------------------CREATE Post ------------------------------
+// -------------------CREATE POST ------------------------------
 
 export const POST = async (req, res) => {
     BigInt.prototype.toJSON = function () {
         return this.toString();
     };
     try {
-        
         const result = await prisma.user.create({
             data: {
                 firstName: "John",
@@ -57,7 +56,7 @@ export const POST = async (req, res) => {
 };
 
 
-// -------------------READ USER ------------------------------
+// -------------------READ POST ------------------------------
 
 export const GET = async () => {
     try {
@@ -75,7 +74,7 @@ export const GET = async () => {
     }
 };
 
-// -------------------UPDATE USER ------------------------------
+// -------------------UPDATE  POST------------------------------
 
 export const PUT = async (req, res) => {
     try {
@@ -105,7 +104,7 @@ export const PUT = async (req, res) => {
     }
 };
 
-// -------------------DELETE USER ------------------------------
+// -------------------DELETE post ------------------------------
 export const DELETE = async (req, res) => {
     try {
         const {searchParams} = new URL(req.url);
