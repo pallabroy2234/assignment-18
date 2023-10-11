@@ -1,0 +1,16 @@
+-- CreateTable
+CREATE TABLE `post_comment` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `postId` BIGINT UNSIGNED NOT NULL,
+    `title` VARCHAR(100) NOT NULL,
+    `published` BOOLEAN NOT NULL DEFAULT true,
+    `createdAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `updatedAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `publishedAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `content` TEXT NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `post_comment` ADD CONSTRAINT `post_comment_postId_fkey` FOREIGN KEY (`postId`) REFERENCES `post`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
